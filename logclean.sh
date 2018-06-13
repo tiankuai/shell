@@ -19,6 +19,7 @@ function baking()
     PathItem=`echo $1 |awk -F / '{print $3}'`
     #压缩备份日志并用日期做记录
     tar --warning=no-file-changed -zcvPf $LogPath/catalina.tar.gz  $LogPath/catalina.out && echo "----${PathItem}-bakingtime-${Date}----" >> ${LogBakLog}
+	sleep 1
     mv -v "$LogPath/catalina.tar.gz" "$LogBakPath/$PathItem$Date.tar.gz" && echo "----${PathItem}-bakEnd----" >> ${LogBakLog}
 }
 #定义日志清理函数
@@ -30,6 +31,7 @@ function cleaning()
     #清理除了主日志的其他超出五天的日志文件
     find $LogPath -mtime +5 -name "*201?*" -exec rm -rf {} \; && echo "----${PathItem}--cleaningtime--${Date}----" >> ${LogBakLog}
     #使用echo清空catalina.out主日志
+	sleep 1
     echo ' ' > $1 && echo "----${PathItem}-cleanEnd----" >> ${LogBakLog}
 }
 #判断tomcat是否存在
