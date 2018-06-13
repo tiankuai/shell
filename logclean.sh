@@ -19,7 +19,7 @@ function baking()
     PathItem=`echo $1 |awk -F / '{print $3}'`
     #压缩备份日志并用日期做记录
     tar --warning=no-file-changed -zcvPf $LogPath/catalina.tar.gz  $LogPath/catalina.out && echo "----${PathItem}-bakingtime-${Date}----" >> ${LogBakLog}
-	sleep 1
+	sleep 2
     mv -v "$LogPath/catalina.tar.gz" "$LogBakPath/$PathItem$Date.tar.gz" && echo "----${PathItem}-bakEnd----" >> ${LogBakLog}
 }
 #定义日志清理函数
