@@ -21,6 +21,7 @@ function baking()
     tar --warning=no-file-changed -zcvPf $LogPath/catalina.tar.gz  $LogPath/catalina.out && echo "----${PathItem}-bakingtime-${Date}----" >> ${LogBakLog}
 	sleep 2
     mv -v "$LogPath/catalina.tar.gz" "$LogBakPath/$PathItem$Date.tar.gz" && echo "----${PathItem}-bakEnd----" >> ${LogBakLog}
+	find $LogBakPath -mtime +5 -name "*201?*" -exec rm -rf {} \; && echo "----${LogBakPath}--cleaningtime5dayold--${Date}----" >> ${LogBakLog}
 }
 #定义日志清理函数
 function cleaning()
