@@ -28,7 +28,7 @@ function cleaning()
 {
     #截取日志的绝对路经
     LogPath=`echo $1|awk -F catalina.out '{print $1}'`
-	PathItem=`echo $1 |awk -F / '{print $3}'`
+    PathItem=`echo $1 |awk -F / '{print $3}'`
     #清理除了主日志的其他超出五天的日志文件
     find $LogPath -mtime +5 -name "*201?*" -exec rm -rf {} \; && echo "----${PathItem}--cleaningtime--${Date}----" >> ${LogBakLog}
     #使用echo清空catalina.out主日志
