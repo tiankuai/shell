@@ -6,7 +6,7 @@ set -e
 #PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin
 #export PATH
 #数据库地址
-dbip='114.215.17.177'
+dbip='114.215.17'
 #数据库用户名
 dbuser='testdb'
 #数据库密码

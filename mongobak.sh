@@ -7,7 +7,7 @@ set -e
 #export PATH
 #数据库地址
 dbpath='/usr/local/mongodb/bin/'
-dbip='118.190.117.102'
+dbip='118.190.117'
 #数据库用户名
 dbuser='cas'
 #数据库密码
